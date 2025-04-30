@@ -5,7 +5,7 @@ A Spring Boot application designed to manage power unit components for Formula 1
 ## Technologies Used
 
 - Java 21
-- Spring Boot 3.2.3
+- Spring Boot 3.3.10
 - Spring Data JPA
 - PostgreSQL
 - Flyway (Database Migration)
