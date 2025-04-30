@@ -3,6 +3,8 @@
 /Users/gustavobecker/documentos/projetos/java/power-unit-manager/src/main/java/com/powerunitmanager/controller/ManufacturerController.java
 /Users/gustavobecker/documentos/projetos/java/power-unit-manager/src/main/java/com/powerunitmanager/controller/PowerUnitController.java
 /Users/gustavobecker/documentos/projetos/java/power-unit-manager/src/main/java/com/powerunitmanager/controller/ReplacementHistoryController.java
+/Users/gustavobecker/documentos/projetos/java/power-unit-manager/src/main/java/com/powerunitmanager/controller/model/AddLapsRequest.java
+/Users/gustavobecker/documentos/projetos/java/power-unit-manager/src/main/java/com/powerunitmanager/controller/model/UpdateDurabilityRequest.java
 /Users/gustavobecker/documentos/projetos/java/power-unit-manager/src/main/java/com/powerunitmanager/dto/ComponentDTO.java
 /Users/gustavobecker/documentos/projetos/java/power-unit-manager/src/main/java/com/powerunitmanager/dto/ManufacturerDTO.java
 /Users/gustavobecker/documentos/projetos/java/power-unit-manager/src/main/java/com/powerunitmanager/dto/PowerUnitDTO.java

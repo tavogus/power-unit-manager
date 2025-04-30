@@ -11,9 +11,11 @@ com/powerunitmanager/repository/ReplacementHistoryRepository.class
 com/powerunitmanager/dto/ReplacementHistoryDTO.class
 com/powerunitmanager/controller/ManufacturerController.class
 com/powerunitmanager/controller/ComponentController.class
+com/powerunitmanager/controller/model/UpdateDurabilityRequest.class
 com/powerunitmanager/dto/ComponentDTO.class
 com/powerunitmanager/model/Manufacturer.class
 com/powerunitmanager/dto/PowerUnitDTO.class
+com/powerunitmanager/controller/model/AddLapsRequest.class
 com/powerunitmanager/repository/ManufacturerRepository.class
 com/powerunitmanager/model/ComponentType.class
 com/powerunitmanager/service/ReplacementHistoryService.class

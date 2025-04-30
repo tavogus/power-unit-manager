@@ -3,6 +3,7 @@ package com.powerunitmanager.service;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import com.powerunitmanager.controller.model.UpdateDurabilityRequest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,7 +30,10 @@ public class ManufacturerService {
     }
 
     @Transactional
-    public ManufacturerDTO updateDurabilityVersion(Long manufacturerId, ComponentType type, Integer durability) {
+    public ManufacturerDTO updateDurabilityVersion(Long manufacturerId, UpdateDurabilityRequest request) {
+        ComponentType type = ComponentType.valueOf(request.type());
+        Integer durability = request.durability();
+
         Manufacturer manufacturer = manufacturerRepository.findById(manufacturerId)
                 .orElseThrow(() -> new RuntimeException("Manufacturer not found"));
 

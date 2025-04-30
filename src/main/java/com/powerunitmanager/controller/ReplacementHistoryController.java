@@ -23,26 +23,17 @@ public class ReplacementHistoryController {
     }
 
     @PostMapping
-    public ResponseEntity<ReplacementHistoryDTO> registerReplacement(
-            @RequestBody ReplacementHistoryDTO replacementHistoryDTO) {
-        ReplacementHistoryDTO registeredReplacement = replacementHistoryService
-                .registerReplacement(replacementHistoryDTO);
-        return ResponseEntity.ok(registeredReplacement);
+    public ResponseEntity<ReplacementHistoryDTO> registerReplacement(@RequestBody ReplacementHistoryDTO replacementHistoryDTO) {
+        return ResponseEntity.ok(replacementHistoryService.registerReplacement(replacementHistoryDTO));
     }
 
     @GetMapping("/power-unit/{powerUnitId}")
-    public ResponseEntity<List<ReplacementHistoryDTO>> getReplacementHistoryByPowerUnit(
-            @PathVariable Long powerUnitId) {
-        List<ReplacementHistoryDTO> history = replacementHistoryService
-                .getReplacementHistoryByPowerUnit(powerUnitId);
-        return ResponseEntity.ok(history);
+    public ResponseEntity<List<ReplacementHistoryDTO>> getReplacementHistoryByPowerUnit(@PathVariable Long powerUnitId) {
+        return ResponseEntity.ok(replacementHistoryService.getReplacementHistoryByPowerUnit(powerUnitId));
     }
 
     @GetMapping("/component/{componentId}")
-    public ResponseEntity<List<ReplacementHistoryDTO>> getReplacementHistoryByComponent(
-            @PathVariable Long componentId) {
-        List<ReplacementHistoryDTO> history = replacementHistoryService
-                .getReplacementHistoryByComponent(componentId);
-        return ResponseEntity.ok(history);
+    public ResponseEntity<List<ReplacementHistoryDTO>> getReplacementHistoryByComponent(@PathVariable Long componentId) {
+        return ResponseEntity.ok(replacementHistoryService.getReplacementHistoryByComponent(componentId));
     }
 } 

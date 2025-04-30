@@ -1,19 +1,12 @@
 package com.powerunitmanager.controller;
 
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import com.powerunitmanager.controller.model.AddLapsRequest;
 import com.powerunitmanager.dto.PowerUnitDTO;
 import com.powerunitmanager.service.PowerUnitService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/power-units")
@@ -26,28 +19,22 @@ public class PowerUnitController {
 
     @PostMapping
     public ResponseEntity<PowerUnitDTO> createPowerUnit(@RequestBody PowerUnitDTO powerUnitDTO) {
-        PowerUnitDTO createdPowerUnit = powerUnitService.createPowerUnit(powerUnitDTO);
-        return ResponseEntity.ok(createdPowerUnit);
+        return ResponseEntity.ok(powerUnitService.createPowerUnit(powerUnitDTO));
     }
 
     @PutMapping("/{powerUnitId}/laps")
-    public ResponseEntity<Void> addLaps(
-            @PathVariable Long powerUnitId,
-            @RequestBody Map<String, Integer> request) {
-        Integer laps = request.get("laps");
-        powerUnitService.addLaps(powerUnitId, laps);
+    public ResponseEntity<Void> addLaps(@PathVariable Long powerUnitId, @RequestBody AddLapsRequest request) {
+        powerUnitService.addLaps(powerUnitId, request.laps());
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<PowerUnitDTO> getPowerUnitById(@PathVariable Long id) {
-        PowerUnitDTO powerUnit = powerUnitService.getPowerUnitById(id);
-        return ResponseEntity.ok(powerUnit);
+        return ResponseEntity.ok(powerUnitService.getPowerUnitById(id));
     }
 
     @GetMapping
     public ResponseEntity<List<PowerUnitDTO>> getAllPowerUnits() {
-        List<PowerUnitDTO> powerUnits = powerUnitService.getAllPowerUnits();
-        return ResponseEntity.ok(powerUnits);
+        return ResponseEntity.ok(powerUnitService.getAllPowerUnits());
     }
 } 

@@ -33,6 +33,9 @@ public class ReplacementHistoryService {
         Component component = componentRepository.findById(replacementHistoryDTO.componentId())
                 .orElseThrow(() -> new RuntimeException("Component not found"));
 
+        component.setLastReplacementDate(replacementHistoryDTO.replacementDate());
+        component = componentRepository.save(component);
+
         PowerUnit powerUnit = powerUnitRepository.findById(replacementHistoryDTO.powerUnitId())
                 .orElseThrow(() -> new RuntimeException("Power Unit not found"));
 
