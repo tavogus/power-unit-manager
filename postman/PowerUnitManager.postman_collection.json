@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+		"name": "Power Unit Manager API",
+		"description": "API para gerenciamento de componentes de unidades de potência da Fórmula 1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Componentes",
+			"item": [
+				{
+					"name": "Criar Componente",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ICE V1\",\n    \"type\": \"ICE\",\n    \"baseDurability\": 5000,\n    \"currentDurability\": 100.0,\n    \"manufacturerId\": 1,\n    \"powerUnitId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/components",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "components"]
+						}
+					}
+				},
+				{
+					"name": "Listar Componentes por Unidade de Potência",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/components/power-unit/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "components", "power-unit", "1"]
+						}
+					}
+				},
+				{
+					"name": "Listar Componentes com Baixa Durabilidade",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/components/low-durability",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "components", "low-durability"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Fabricantes",
+			"item": [
+				{
+					"name": "Criar Fabricante",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Mercedes\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/manufacturers",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "manufacturers"]
+						}
+					}
+				},
+				{
+					"name": "Atualizar Versão de Durabilidade",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"type\": \"ICE\",\n    \"durability\": 5000\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/manufacturers/1/durability",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "manufacturers", "1", "durability"]
+						}
+					}
+				},
+				{
+					"name": "Listar Todos os Fabricantes",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/manufacturers",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "manufacturers"]
+						}
+					}
+				},
+				{
+					"name": "Buscar Fabricante por ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/manufacturers/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "manufacturers", "1"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Unidades de Potência",
+			"item": [
+				{
+					"name": "Criar Unidade de Potência",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"carIdentifier\": \"MERCEDES_1\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/power-units",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "power-units"]
+						}
+					}
+				},
+				{
+					"name": "Adicionar Voltas",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"laps\": 50\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/power-units/1/laps",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "power-units", "1", "laps"]
+						}
+					}
+				},
+				{
+					"name": "Buscar Unidade de Potência por ID",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/power-units/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "power-units", "1"]
+						}
+					}
+				},
+				{
+					"name": "Listar Todas as Unidades de Potência",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/power-units",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "power-units"]
+						}
+					}
+				}
+			]
+		},
+		{
+			"name": "Histórico de Troca",
+			"item": [
+				{
+					"name": "Registrar Troca",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"componentId\": 1,\n    \"powerUnitId\": 1,\n    \"replacementDate\": \"2024-03-20T10:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/replacements",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "replacements"]
+						}
+					}
+				},
+				{
+					"name": "Listar Histórico por Unidade de Potência",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/replacements/power-unit/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "replacements", "power-unit", "1"]
+						}
+					}
+				},
+				{
+					"name": "Listar Histórico por Componente",
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "http://localhost:8080/api/replacements/component/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "replacements", "component", "1"]
+						}
+					}
+				}
+			]
+		}
+	]
+} 
