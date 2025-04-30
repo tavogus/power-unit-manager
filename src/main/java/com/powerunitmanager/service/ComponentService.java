@@ -76,6 +76,28 @@ public class ComponentService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional
+    public ComponentDTO updateComponent(Long id, ComponentDTO componentDTO) {
+        Component component = componentRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Component not found"));
+
+        Manufacturer manufacturer = manufacturerRepository.findById(componentDTO.manufacturerId())
+                .orElseThrow(() -> new RuntimeException("Manufacturer not found"));
+
+        PowerUnit powerUnit = powerUnitRepository.findById(componentDTO.powerUnitId())
+                .orElseThrow(() -> new RuntimeException("Power Unit not found"));
+
+        component.setName(componentDTO.name());
+        component.setType(componentDTO.type());
+        component.setBaseDurability(componentDTO.baseDurability());
+        component.setCurrentDurability(componentDTO.currentDurability());
+        component.setManufacturer(manufacturer);
+        component.setPowerUnit(powerUnit);
+
+        Component updatedComponent = componentRepository.save(component);
+        return toDTO(updatedComponent);
+    }
+
     private ComponentDTO toDTO(Component component) {
         return new ComponentDTO(
                 component.getId(),

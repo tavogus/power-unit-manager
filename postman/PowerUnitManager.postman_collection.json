@@ -33,6 +33,29 @@
 					}
 				},
 				{
+					"name": "Atualizar Componente",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ICE V2\",\n    \"type\": \"ICE\",\n    \"baseDurability\": 6000,\n    \"currentDurability\": 95.5,\n    \"manufacturerId\": 1,\n    \"powerUnitId\": 1\n}"
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/components/1",
+							"protocol": "http",
+							"host": ["localhost"],
+							"port": "8080",
+							"path": ["api", "components", "1"]
+						}
+					}
+				},
+				{
 					"name": "Listar Componentes por Unidade de Potência",
 					"request": {
 						"method": "GET",
