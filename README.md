@@ -69,6 +69,50 @@ The application will start on `http://localhost:8080`
 - `PUT /api/replacement-history/{id}` - Update a replacement history record
 - `DELETE /api/replacement-history/{id}` - Delete a replacement history record
 
+## System Usage Flow
+
+The system follows a structured flow for managing power unit components:
+
+1. **List Manufacturers and Durability Versions**
+   - Use `GET /api/manufacturers/{id}` to view durability versions for each component type
+   - This helps in understanding the current durability specifications
+
+2. **Update Component Durability Version**
+   - Use `PUT /api/manufacturers/{manufacturerId}/durability` to update durability for specific component types
+   - This allows updating the durability specifications for future components
+
+3. **Update Component to New Version**
+   - Use `PUT /api/components/{id}` to update an existing component with new durability values
+   - This applies the new durability specifications to specific components
+
+4. **Register Component Replacement**
+   - Use `POST /api/replacements` to record component replacements
+   - Records include:
+     - Replacement date
+     - Durability at replacement
+     - Replacement reason
+     - Component ID
+     - Power unit ID
+
+### Additional Features
+
+1. **Durability Monitoring**
+   - Use `GET /api/components/low-durability` to identify components with durability below 20%
+   - Helps in proactive component management
+
+2. **Replacement History**
+   - Use `GET /api/replacements/power-unit/{powerUnitId}` to view replacement history by power unit
+   - Use `GET /api/replacements/component/{componentId}` to view replacement history by component
+   - Provides insights into component lifecycle and maintenance patterns
+
+3. **Lap Management**
+   - Use `PUT /api/power-units/{powerUnitId}/laps` to update lap count
+   - Automatically updates component durability based on laps completed
+
+4. **Component Inventory**
+   - Use `GET /api/components/power-unit/{powerUnitId}` to view all components in a specific power unit
+   - Helps in managing component inventory and planning replacements
+
 ## Database Configuration
 
 The application uses PostgreSQL as its database. The default configuration is:
